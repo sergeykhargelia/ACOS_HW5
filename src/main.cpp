@@ -22,16 +22,18 @@ void print_info(int ms, int threads_count) {
 
 }
 
+const int NUMBER_OF_DEFAULT_ARGUMENTS = 4;
+
 int main(int argc, char * argv[]) {
     try {
-        if (argc < 3) {
+        if (argc < NUMBER_OF_DEFAULT_ARGUMENTS) {
             throw std::invalid_argument("wrong number of arguments.");
         }
         int threads_count = atoi(argv[1]);
         std::string input_file_name = std::string(argv[2]),
         output_file_name = std::string(argv[3]);
         double ignore_coefficient = 0;
-        if (argc >= 4) {
+        if (argc >= NUMBER_OF_DEFAULT_ARGUMENTS + 1) {
             ignore_coefficient = atof(argv[4]);
         }
 
